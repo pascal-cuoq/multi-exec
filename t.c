@@ -10,3 +10,15 @@ int main(void) {
   int n = (!p1 << 2) + (!p2 << 1) + !p3;
   printf("n is: %d\n", n);
 }
+
+int main_with_loop(void) {
+  int n = 0;
+  for (int i = 0; i < 4; i++) {
+    char *p = malloc(1);
+    n = (n << 1) + !p;
+    free(p); // or not, who cares!
+  }
+  printf("n is: %d\n", n);
+  return 0; // only "main" is allowed not to have this
+}
+
